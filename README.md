@@ -13,7 +13,7 @@ The notebook requires standard data science libraries, including:
 - scikit-learn for normalization and encoding
 - Google Colab runtime for environment setup and Drive integration
 
-## Phase 1 - Exploratory Data Analysis
+## Checkpoint 1/3 - Exploratory Data Analysis
 This notebook shows the steps I completed for data visualization, data preprocessing and feature engineering of the given dataset, preparing user, item, and interaction data for later model training and evaluation.
 
 **Core objectives:**
@@ -65,7 +65,7 @@ All numeric attributes are standardized, categorical features are encoded, and u
 - Data validation ensures that no missing values persist before moving to model training.
 - This checkpoint establishes the foundation for all downstream recommendation system components.
 
-## Checkpoint 2 - Sequential Modeling
+## Checkpoint 2/3 - Sequential Modeling
 This checkpoint extends the preprocessed data from Checkpoint 1 into a sequence modeling framework for user behavior prediction. The primary objective is to transform static interaction data into ordered purchase sequences suitable for recurrent neural network (RNN)–based recommendation systems.
 
 **Data Transformation**
@@ -87,3 +87,24 @@ The checkpoint includes integration with the Sim4Rec framework, providing utilit
 
 **Outcome**
 By the end of Checkpoint 2, the project transitions from static feature-based preprocessing to dynamic, order-aware modeling, setting the stage for later experiments with RNNs and other sequence-aware architectures (e.g., GRU, LSTM, or Transformer-based recommenders).
+
+## Checkpoint 3/3 - Final Integration and Feature Consolidation
+This final checkpoint refines and consolidates all previous preprocessing and modeling work, producing a fully cleaned, standardized, and integrated dataset suitable for advanced recommendation architectures.
+
+**Data Reconstruction**
+- Data is reloaded from the previous checkpoint outputs, ensuring consistency across user, item, and interaction components.
+- User and item features are recomputed to confirm integrity, including total interactions, positive interaction rate, and item popularity.
+- These are merged into unified data structures for further processing and experimentation.
+
+**Feature Refinement**
+- Continuous variables (such as user engagement statistics and item popularity) are re-normalized to maintain feature stability and prevent scale imbalance.
+- Categorical variables are re-encoded through one-hot encoding to preserve consistency between checkpoints.
+- Final verification ensures no missing or misaligned data entries remain.
+
+**Model Readiness**
+Although not fully executed in this checkpoint, the inclusion of optional graph-based modeling tools (such as PyTorch Geometric) suggests potential expansion toward Graph Neural Network (GNN) or hybrid recommendation systems in future work.
+This setup allows the dataset to serve as the foundation for both sequence-aware and relationship-aware modeling approaches.
+
+**Outcome**
+By the end of Checkpoint 3, the project has achieved a fully operational data pipeline, capable of producing model-ready datasets for diverse recommendation algorithms.
+It concludes the preprocessing phase and transitions the project toward model experimentation, evaluation, and deployment stages.
