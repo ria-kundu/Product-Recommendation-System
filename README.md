@@ -2,6 +2,9 @@
 
 This notebook contains 3 checkpoints that, in conjunction, build a Recommendation System.
 
+Please check out my project [write-up](https://docs.google.com/document/d/17RDXD0kMCzl_XkmpfTTBI2lRsimZZQY_DdZ923ZTN3k/edit?usp=sharing) and [presentation](https://docs.google.com/presentation/d/1-yGsDi_ueHYla5nPrs3N8h1gRC3RBtOotfY9C6r4uKI/edit?usp=sharing) for more detailed information reguarding this project! 
+
+
 **Dependencies**
 The notebook requires standard data science libraries, including:
 - Python 3.8+
@@ -62,4 +65,25 @@ All numeric attributes are standardized, categorical features are encoded, and u
 - Data validation ensures that no missing values persist before moving to model training.
 - This checkpoint establishes the foundation for all downstream recommendation system components.
 
-## Checkpoint 2 
+## Checkpoint 2 - Sequential Modeling
+This checkpoint extends the preprocessed data from Checkpoint 1 into a sequence modeling framework for user behavior prediction. The primary objective is to transform static interaction data into ordered purchase sequences suitable for recurrent neural network (RNN)–based recommendation systems.
+
+**Data Transformation**
+- User histories are converted into sequential representations where each row corresponds to a user’s ordered list of interacted items.
+- Because users vary in activity, sequences are padded with placeholder values (e.g., −1) to achieve uniform input lengths across the dataset.
+- The resulting structured data is saved as updated_chckpt2_data.csv, forming the input to sequence-based models.
+
+**Model Overview**
+A Recurrent Neural Network (RNN) architecture is introduced to capture temporal dependencies in user–item interactions.
+Model configuration:
+- Embedding dimension: 64
+- Hidden units: 256
+- Layers: 2
+- Dropout: 0.3
+- Learning rate: 0.001
+This structure enables the model to learn user intent over time, improving recommendation accuracy for sequential purchase or interaction prediction.
+
+The checkpoint includes integration with the Sim4Rec framework, providing utilities for dataset management, training loops, and evaluation of sequential recommendation models.
+
+**Outcome**
+By the end of Checkpoint 2, the project transitions from static feature-based preprocessing to dynamic, order-aware modeling, setting the stage for later experiments with RNNs and other sequence-aware architectures (e.g., GRU, LSTM, or Transformer-based recommenders).
